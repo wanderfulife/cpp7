@@ -26,7 +26,13 @@ int main() {
 
     double doubleArr[] = {1.1, 2.2, 3.3, 4.4, 5.5};
     size_t doubleArrLen = sizeof(doubleArr) / sizeof(double);
-    std::cout << "Double array: ";
+    std::cout << "Double array before increment: ";
+    iter(doubleArr, doubleArrLen, printElement<double>);
+    std::cout << std::endl;
+
+    iter(doubleArr, doubleArrLen, incrementElement<double>);
+
+    std::cout << "Double array after increment:  ";
     iter(doubleArr, doubleArrLen, printElement<double>);
     std::cout << std::endl << std::endl;
 

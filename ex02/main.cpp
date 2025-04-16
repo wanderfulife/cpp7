@@ -16,6 +16,35 @@ void printArray(const Array<T>& arr, const std::string& name) {
 
 int main(int, char**)
 {
+    std::cout << "--- Basic Demo ---" << std::endl;
+
+    Array<int> emptyArray;
+    printArray(emptyArray, "emptyArray");
+    Array<int> sizedArray(5);
+
+    for (unsigned int i = 0; i < sizedArray.size(); ++i) {
+        sizedArray[i] = i * 10;
+    }
+    printArray(sizedArray, "sizedArray<int>");
+    std::cout << "sizedArray[2] = " << sizedArray[2] << std::endl;
+    std::cout << std::endl;
+
+    std::cout << "--- Const Access Demo ---" << std::endl;
+    const Array<int> constArr = sizedArray;
+    printArray(constArr, "constArr");
+    std::cout << "Reading constArr[3] = " << constArr[3] << std::endl;
+    std::cout << std::endl;
+
+    std::cout << "--- Exception Demo ---" << std::endl;
+    try {
+        std::cout << "Accessing [10] (out of bounds): " << sizedArray[10] << std::endl;
+    } catch (const std::exception& e) {
+        std::cerr << "Caught expected exception: " << e.what() << std::endl;
+    }
+    std::cout << std::endl;
+
+    std::cout << "--- Running original tests ---" << std::endl;
+
     Array<int> numbers(MAX_VAL);
     int* mirror = new int[MAX_VAL];
     srand(time(NULL));

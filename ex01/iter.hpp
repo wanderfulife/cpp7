@@ -1,21 +1,15 @@
 #ifndef ITER_HPP
-# define ITER_HPP
+#define ITER_HPP
 
-# include <cstddef>
+#include <cstddef>
 
 template <typename T, typename Func>
-void iter(T* array, size_t length, Func f) {
-    if (!array) return;
-    for (size_t i = 0; i < length; ++i) {
-        f(array[i]);
+void iter(T* arrayAddress, size_t arrayLength, Func func) {
+    if (!arrayAddress || !func) {
+        return;
     }
-}
-
-template <typename T, typename Func>
-void iter(T const * array, size_t length, Func f) {
-    if (!array) return;
-    for (size_t i = 0; i < length; ++i) {
-        f(array[i]);
+    for (size_t i = 0; i < arrayLength; ++i) {
+        func(arrayAddress[i]);
     }
 }
 

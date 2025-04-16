@@ -14,15 +14,15 @@ public:
 
     Array();
     Array(unsigned int n);
-    Array(Array const & src);
+    Array(Array const &src);
 
 
     ~Array();
 
 
-    Array & operator=(Array const & rhs);
-    T & operator[](unsigned int i);
-    T const & operator[](unsigned int i) const;
+    Array &operator=(Array const &rhs);
+    T &operator[](unsigned int i);
+    T const &operator[](unsigned int i) const;
 
 
     unsigned int size() const;
